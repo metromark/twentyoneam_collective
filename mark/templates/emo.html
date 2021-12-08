@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Simulacrum</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="emo_content">
+    {% if emo|length < 1 %}
+
+    <h4>There are no tasks. Create one below</h4>
+
+    {% else %}
+
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-8">
+            <div class="tile">
+                <div class="tile is-parent is-vertical">
+                    <article class="tile is-child notification is-centered">
+                        <p class="title is-size-5">Simulacrum</p>
+                        <p class="subtitle"></p>
+                        <div id="sketch-holder"></div>
+                            <div class="columns is-mobile">
+                                <div class="column is-half is-offset-one-quarter has-text-centered pt4">
+                                    <button type="submit" class="button is-dark" value="Submit">Share</button>
+                                    <button type="submit" class="button is-dark" value="Submit">Download</button>
+                                </div>
+                            </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child notification is-$grey-lighter">
+                <div class="content">
+                    <p class="Title is-3">Sentence</p>
+                    <div class="notification is-primary is-light is-size-6">
+                        "{{txt}}"
+                        
+                    </div>
+                    <div class="field p-1 is-grouped is-grouped-multiline ">
+                        <div class="control">
+                            <div class="tags has-addons">
+                                <span class="tag is-success is-medium">Happy</span>
+                                <span class="tag is-danger is-medium">Angry</span>
+                                <span class="tag is-info is-medium">Sad</span>
+                                <span class="tag is-dark is-medium">Fear</span>
+                                <span class="tag is-warning is-medium">Surprise</span>
+                            </div>
+                        </div>
+                    </div>
+                    <progress class="progress is-success is-small" value="{{ happy  * 100 + 1}}" max="100">{{ happy  * 100 + 1}}%</progress>
+                    <progress class="progress is-danger is-small" value="{{ angry  * 100 + 1}}" max="100">{{ angry  * 100 + 1}}%</progress>
+                    <progress class="progress is-info is-small" value="{{ sad  * 100 + 1}}" max="100">{{ sad  * 100 + 1}}%</progress>
+                    <progress class="progress is-dark is-small" value="{{ fear  * 100 + 1}}" max="100">{{ fear  * 100 + 1}}%</progress>
+                    <progress class="progress is-warning is-small" value="{{ surprise  * 100 + 1}}" max="100">{{ surprise * 100 + 1 }}%</progress>
+                    
+                    <div class="subtitle  notification is-light is-size-7 is-italic">
+                        Here's what the computer thinks of what you say. Like a flawed digital simulacrum, visual representations of our thoughts, appear in front of you from its version of reality. Unbeknownst to us, it knows when we are happy, angry, sad, surprised, and fearful. Unbeknownst to you, your thoughts are being used against you. We're used to the idea that computers are hackable, but the new reality is that computers are also hacking you.
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    var emotions = {{ emo|tojson }}
+    console.log(emotions)
+ </script>
+ <script src="{{ url_for('static', filename='sketch.js') }}"></script>
+ <script src="{{ url_for('static', filename='particle.js') }}"></script>
+
+{% endif %}
+
+{% endblock %}
