@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Digital Simulacrum</title>
+{% endblock %}
+
+{% block body %}
+
+
+
+<section class="hero is-dark is-fullheight-with-navbar">
+    <div class="columns is-mobile">
+        <div class="column is-half is-offset-one-quarter has-text-centered ">
+            <div class="tile is-ancestor">
+                <div class="tile is-vertical is-12">
+                  <div class="tile">
+                    <div class="tile is-parent is-vertical">
+                    </div>
+                    <div class="tile is-parent">
+                    </div>
+                  </div>
+                  <div class="tile is-parent">
+                    <article class="tile is-child notification is-dark">
+                      <div class="content">
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            <p class="pt-8 block">
+                It's proof that society has different interpretations of what's happening that, with the advent of technology, in their chaotic discourse on social media platforms showed the contrasting realities of humans and their leanings. But can we take a step back and look at the discourse using the same technology? This time, not as a medium but as an eye.
+            </p>
+            <p class="title p-8 block">
+                Digital Simulacrum
+            </p>
+            <form action="/" method="POST" class="block">
+                <textarea class="textarea is-light is-transparent" placeholder="Insert any text" type="textbox" name="sentence" id="sentence"></textarea>
+                <button type="submit" class="button is-dark block" value="Submit">Submit</button>
+            </form>
+            <p class="p-8 block is-size-7 has-text-grey-light is-italic">
+                Mark Toledo is an auditor-turned-data professional. By profession, he is a big data engineer, whose interest led him to emerging technologies such as remote sensing, social listening, AI, and software engineering. For his humanitarian work, he created applications and research aimed at solving social problems such as dengue outbreaks, education, and aiding peace processes. Curious, he used data in art pieces to explore how discourses might look if computers could think.
+            </p>
+        </div>
+      </div>
+</section>
+
+
+{% endblock %}
